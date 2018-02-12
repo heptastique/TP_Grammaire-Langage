@@ -16,4 +16,4 @@ set(HEADERS
         )
 
 
-add_executable(test ${SOURCES} ${HEADERS})
+add_executable(TP ${SOURCES} ${HEADERS})
