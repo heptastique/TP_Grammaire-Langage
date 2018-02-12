@@ -32,7 +32,8 @@
 *.app
 
 # CMake debug files
-./cmake-build-debug/*
+
+cmake-build-debug/*
 
 # CLion config files
 .idea/misc.xml
