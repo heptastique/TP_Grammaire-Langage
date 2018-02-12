@@ -2,7 +2,7 @@
 
 # TP_Grammaire-Langage
 
-## How to compile
+## How to run
 - Install [CMake](https://cmake.org/download/) if not done.
 
 - Run the application
