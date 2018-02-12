@@ -1,0 +1,16 @@
+language: cpp
+
+sudo: required
+
+compiler:
+  - clang
+  - gcc
+
+install:
+  - sudo apt-get install cmake
+
+script:
+  - cmake ./CMakeLists.txt
+
+notifications:
+  email: false
