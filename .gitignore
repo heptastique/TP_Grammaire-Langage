@@ -39,9 +39,4 @@ build
 cmake-build-debug/*
 
 # CLion config files
-.idea/misc.xml
-.idea/modules.xml
-.idea/TP_Grammaire-Langage.iml
-.idea/vcs.xml
-.idea/workspace.xml
-.idea/codeStyles/Project.xml
+.idea
