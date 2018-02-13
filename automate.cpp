@@ -4,7 +4,6 @@
 
 #include <iostream>
 #include "automate.h"
-#include "lexer.h"
 
 void Automate::lecture() {
     cout << "Entrez votre chaine :" << endl;
@@ -18,4 +17,8 @@ void Automate::lecture() {
         cout<<endl;
         l.Avancer();
     }
+}
+
+void Automate::decalage(Symbole * s, Etat * e) {
+    // Todo
 }
