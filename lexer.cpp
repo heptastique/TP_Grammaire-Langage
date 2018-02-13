@@ -1,14 +1,18 @@
 #include "lexer.h"
 
-Symbole * Lexer::Consulter() {
-   if (!tampon) {
-
-      if (tete==flux.length())
+Symbole * Lexer::Consulter()
+{
+   if (!tampon)
+{
+      if (tete == flux.length())
+      {
          tampon = new Symbole(FIN);
+      }
       else
       {
 
-         switch (flux[tete]) {
+         switch (flux[tete])
+	 {
             case '(':
                tampon = new Symbole(OPENPAR);
                tete++;
@@ -26,26 +30,33 @@ Symbole * Lexer::Consulter() {
                tete++;
                break;
             default:
-               if (flux[tete]<='9' && flux[tete]>='0') {
-                  int resultat = flux[tete]-'0';
-                  int i=1;
-                  while (flux[tete+i]<='9' && flux[tete+i]>='0') {
-                     resultat = resultat*10+(flux[tete+i]-'0');
-                     i++;
+            {
+               if (flux[tete] <= '9' && flux[tete] >= '0')
+               {
+                  int resultat = flux[tete] - '0';
+                  int i = 1;
+                  while (flux[tete+i] <= '9' && flux[tete+i] >= '0')
+                  {
+                     resultat = resultat * 10 + (flux[tete + i] - '0');
+                     i = i + 1;
                   }
-                  tete = tete+i;
+                  tete = tete + i;
                   tampon = new Entier(resultat);
                }
-               else {
+               else
+               {
                   tampon = new Symbole(ERREUR);
                }
+            }
          }
       }
    }
+
    return tampon;
 }
 
-void Lexer::Avancer() {
+void Lexer::Avancer()
+{
    tampon = nullptr;
 }
 
