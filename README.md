@@ -7,5 +7,5 @@
 
 - Run the application
 ```
-$ CMake CMakeLists.txt
+$ ./compile.sh
 ```
