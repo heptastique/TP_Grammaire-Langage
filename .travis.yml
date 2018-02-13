@@ -8,9 +8,10 @@ compiler:
 
 install:
   - sudo apt-get install cmake
+  - chmod +x ./compile.sh
 
 script:
-  - cmake ./CMakeLists.txt
+  - ./compile.sh
 
 notifications:
   email: false
