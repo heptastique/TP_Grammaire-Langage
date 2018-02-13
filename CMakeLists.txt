@@ -8,12 +8,16 @@ set(SOURCES
         main.cpp
         lexer.cpp
         symbole.cpp
-        automate.cpp)
+        automate.cpp
+        etat.cpp
+        e1.cpp)
 
 set(HEADERS
         lexer.h
         symbole.h
-        automate.h)
+        automate.h
+        etat.h
+        e1.h)
 
 
 add_executable(TP ${SOURCES} ${HEADERS})
