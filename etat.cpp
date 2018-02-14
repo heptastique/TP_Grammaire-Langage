@@ -3,3 +3,13 @@
 //
 
 #include "etat.h"
+
+Etat::Etat(string name) {
+    this->name = name;
+}
+
+bool Etat::transition(Automate & automate, Symbole * s) {
+
+}
+
+Etat::~Etat() {}
