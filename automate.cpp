@@ -90,6 +90,13 @@ void Automate::lecture()
 
 	printEtats();
 	printSymboles();
+
+	symbole = lexer.consulter();
+	etats.back()->transition(*this, symbole);
+	lexer.avancer();
+
+	printEtats();
+	printSymboles();
 }
 
 void Automate::decalage(Symbole * symbole, Etat * etat)
@@ -106,5 +113,8 @@ void Automate::reduction(int n, Symbole * symbole)
 		etats.pop_back();
 	}
 
-	//etats.back()->transition(*this, symbole);
+	if (etats.size() != 0)
+	{
+		etats.back()->transition(*this, symbole);
+	}
 }
