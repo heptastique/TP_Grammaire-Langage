@@ -4,11 +4,15 @@
 
 #include <iostream>
 #include "automate.h"
+#include "e0.h"
 
 Automate::Automate(string chaine)
 {
     lexer = new Lexer (chaine);
     this->chaine=chaine;
+
+    Etat *etat0 = new E0("etat0");
+    etats.push_back(etat0);
 }
 
 void Automate::lecture()
@@ -36,5 +40,10 @@ void Automate::reduction(int n, Symbole *s)
         delete(etats.back());
         etats.pop_back();
     }
-    //etats.back()->transition(*this, s);
+    etats.back()->transition(*this, s);
+}
+
+void Automate::back(Symbole *s)
+{
+    etats.back()->transition(*this,s);
 }

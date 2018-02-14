@@ -13,13 +13,13 @@ void E3::print() const
     Etat::print();
 }
 
-bool E3::transition(Automate *automate, Symbole *s)
+bool E3::transition(Automate &automate, Symbole *s)
 {
     switch(*s)
     {
-        //case INT:
-       /* default:
-            automate->back(s);*/
+       /* case INT:
+        default:
+            automate.back(s);*/
     }
-    return true;
+    return false;
 }

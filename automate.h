@@ -23,8 +23,9 @@ public:
      */
     void decalage(Symbole * s, Etat * e);
 
-
     void reduction(int n,Symbole * s);
+
+    void back(Symbole *s);
 
 protected:
     string chaine;

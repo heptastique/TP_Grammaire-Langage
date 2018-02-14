@@ -5,7 +5,6 @@
 
 #include "etat.h"
 
-class Automate;
 class E7 : public Etat {
 public :
     E7(string name);

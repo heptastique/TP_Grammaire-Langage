@@ -17,8 +17,8 @@ bool E0::transition(Automate &automate, Symbole *s)
 {
     switch(*s)
     {
-        /*case INT:
-            automate->decalage(s ,new E3("etat3"));*/
+        case INT:
+            automate.decalage(s ,new E3("etat3"));
     }
-    return true;
+    return false;
 }
