@@ -6,11 +6,9 @@
 #include "symbole.h"
 #include <map>
 
-class Expr : public Symbole {
+class Expr : public Entier {
 public:
-    Expr():Symbole(EXPR) {}
+    Expr():Entier(EXPR) {}
     virtual ~Expr() {}
-    virtual double eval(const map<string, double>
-                        & valeurs) = 0;
 };
 

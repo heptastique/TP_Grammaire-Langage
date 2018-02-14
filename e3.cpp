@@ -17,7 +17,6 @@ bool E3::transition(Automate &automate, Symbole *s)
 {
     switch(*s)
     {
-        case INT:
         default:
             Symbole * s1 = automate.pop();
             automate.reduction(1,s1);

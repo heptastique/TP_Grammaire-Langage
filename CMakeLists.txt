@@ -20,7 +20,8 @@ set(SOURCES
         e6.cpp
         e7.cpp
         e8.cpp
-        e9.cpp)
+        e9.cpp
+        )
 
 set(HEADERS
         lexer.h
@@ -37,7 +38,8 @@ set(HEADERS
         e6.h
         e7.h
         e8.h
-        e9.h)
+        e9.h
+        )
 
 
 add_executable(TP ${SOURCES} ${HEADERS})

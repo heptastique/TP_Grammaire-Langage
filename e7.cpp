@@ -27,7 +27,9 @@ bool E7::transition(Automate &automate, Symbole *s)
             auto s1 = (Expr*) automate.pop();
             automate.pop();
             auto s2 = (Expr*) automate.pop();
-            //automate.reduction(3, new ExprPlus(s2,s1));
+            s1->setVal(s1->getVal()+s2->getVal());
+            s1->setIdent(5);
+            automate.reduction(3, s1);
             break;
     }
     return false;
