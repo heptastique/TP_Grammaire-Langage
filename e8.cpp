@@ -19,6 +19,7 @@ bool E8::transition(Automate &automate, Symbole *s)
     switch(*s)
     {
         default:
+            printTransition("REDUCTION", "depuis 8", "avec default");
             auto s1 = (Expr*) automate.pop();
             automate.pop();
             auto s2 = (Expr*) automate.pop();

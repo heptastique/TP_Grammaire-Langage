@@ -22,14 +22,16 @@ bool E1::transition(Automate &automate, Symbole *s)
     switch(*s)
     {
         case PLUS:
+            printTransition("PLUS", "etat", "etat4");
             automate.decalage(s, new E4("etat4"));
             break;
         case MULT:
+            printTransition("MULT", "etat1", "etat5");
             automate.decalage(s, new E5("etat5"));
             break;
         case FIN:
             cout << "THIS IS THE END" << endl;
-            return false;
+            return true;
     }
     return false;
 }

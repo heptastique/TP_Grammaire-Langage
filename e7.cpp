@@ -20,10 +20,13 @@ bool E7::transition(Automate &automate, Symbole *s)
 {
     switch(*s)
     {
+
         case MULT:
+            printTransition("MULT", "etat7", "etat5");
             automate.decalage(s, new E5("etat5"));
             break;
-        case PLUS:
+        default:
+            printTransition("REDUCTION", "depuis 7", "avec default");
             auto s1 = (Expr*) automate.pop();
             automate.pop();
             auto s2 = (Expr*) automate.pop();
@@ -31,6 +34,7 @@ bool E7::transition(Automate &automate, Symbole *s)
             s1->setIdent(5);
             automate.reduction(3, s1);
             break;
+
     }
     return false;
 }

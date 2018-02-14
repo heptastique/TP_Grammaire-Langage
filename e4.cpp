@@ -21,12 +21,15 @@ bool E4::transition(Automate &automate, Symbole *s)
     switch(*s)
     {
         case INT:
+            printTransition("INT", "etat4", "etat3");
             automate.decalage(s ,new E3("etat3"));
             break;
         case OPENPAR:
+            printTransition("OPENPAR", "etat4", "etat2");
             automate.decalage(s, new E2("etat2"));
             break;
         case EXPR:
+            printTransition("EXPR", "etat4", "etat7");
             automate.decalage(s, new E7("etat7"));
     }
     return false;

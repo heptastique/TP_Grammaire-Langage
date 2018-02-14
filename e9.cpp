@@ -20,6 +20,7 @@ bool E9::transition(Automate &automate, Symbole *s)
     switch(*s)
     {
         default:
+            printTransition("REDUCTION", "depuis 9", "avec default");
             automate.pop();
             auto s1 = (Expr *) automate.pop();
             automate.pop();

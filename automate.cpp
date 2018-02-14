@@ -17,20 +17,31 @@ Automate::Automate(string chaine)
 
 void Automate::lecture()
 {
-
     Symbole * s;
-    while(*(s=lexer->Consulter())!=FIN) {
+    bool fini = false;
+    while(!fini)
+    {
+        s=lexer->Consulter();
+        fini = etats.back()->transition(*this, s);
+    }
+    /*while(*(s=lexer->Consulter())!=FIN) {
         s->Affiche();
         cout<<endl;
         lexer->Avancer();
-    }
+    }*/
+
 }
 
 void Automate::decalage(Symbole * s, Etat * e)
 {
+    cout << (int)*s << endl;
     symboles.push_back(s);
     etats.push_back(e);
-    lexer->Avancer();
+    if((int) *s < 5)
+    {
+        lexer->Avancer();
+    }
+    symboles.back()->Affiche();
 }
 
 void Automate::reduction(int n, Symbole *s)

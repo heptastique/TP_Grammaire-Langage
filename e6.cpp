@@ -21,12 +21,15 @@ bool E6::transition(Automate &automate, Symbole *s)
     switch(*s)
     {
         case PLUS:
+            printTransition("PLUS", "etat6", "etat4");
             automate.decalage(s, new E4("etat4"));
             break;
         case MULT:
+            printTransition("MULT", "etat6", "etat5");
             automate.decalage(s, new E5("etat5"));
             break;
         case CLOSEPAR:
+            printTransition("CLOSEPAR", "etat6", "etat9");
             automate.decalage(s, new E9("etat9"));
             break;
     }
