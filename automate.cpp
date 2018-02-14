@@ -47,3 +47,10 @@ void Automate::back(Symbole *s)
 {
     etats.back()->transition(*this,s);
 }
+
+Symbole * Automate::pop()
+{
+    Symbole * s1 = symboles.back();
+    symboles.pop_back();
+    return s1;
+}

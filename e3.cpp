@@ -17,9 +17,11 @@ bool E3::transition(Automate &automate, Symbole *s)
 {
     switch(*s)
     {
-       /* case INT:
+        case INT:
         default:
-            automate.back(s);*/
+            Symbole * s1 = automate.pop();
+            automate.reduction(1,s1);
+            break;
     }
     return false;
 }

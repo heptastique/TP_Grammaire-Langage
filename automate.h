@@ -27,6 +27,8 @@ public:
 
     void back(Symbole *s);
 
+    Symbole * pop();
+
 protected:
     string chaine;
 
