@@ -1,6 +1,6 @@
 #pragma once
 
-#include <stack>
+#include <vector>
 #include "lexer.h"
 
 using namespace std;
@@ -30,7 +30,7 @@ protected:
     string chaine;
 
     Lexer * lexer;
-    stack<Etat *> etats;
-    stack<Symbole *> symboles;
+    vector<Etat *> etats;
+    vector<Symbole *> symboles;
 };
 

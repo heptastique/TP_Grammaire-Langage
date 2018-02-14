@@ -5,12 +5,14 @@
 #include <iostream>
 #include "automate.h"
 
-Automate::Automate(string chaine) {
+Automate::Automate(string chaine
+{
     lexer = new Lexer (chaine);
     this->chaine=chaine;
 }
 
-void Automate::lecture() {
+void Automate::lecture()
+{
 
     Symbole * s;
     while(*(s=lexer->Consulter())!=FIN) {
@@ -20,8 +22,18 @@ void Automate::lecture() {
     }
 }
 
-void Automate::decalage(Symbole * s, Etat * e) {
-    symboles.push(s);
-    etats.push(e);
+void Automate::decalage(Symbole * s, Etat * e)
+{
+    symboles.push_back(s);
+    etats.push_back(e);
     lexer->Avancer();
+}
+
+void Automate::reduction(int n, Symbole *s)
+{
+    for(int i =0; i<n; i++)
+    {
+        delete(etats.pop_back());
+        etats.pop_back();
+    }
 }
