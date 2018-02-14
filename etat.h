@@ -1,3 +1,5 @@
+# pragma once
+
 # include "automate.h"
 
 class Etat
