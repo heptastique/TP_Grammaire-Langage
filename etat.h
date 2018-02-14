@@ -3,9 +3,9 @@
 //
 #pragma  once
 
-#include "automate.h"
+#include "Symbole.h"
 
-
+class Automate;
 class Etat {
 public:
     Etat(string name);

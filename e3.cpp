@@ -3,3 +3,23 @@
 //
 
 #include "e3.h"
+
+E3::E3(string name) : Etat(name){}
+
+E3::~E3() {}
+
+void E3::print() const
+{
+    Etat::print();
+}
+
+bool E3::transition(Automate *automate, Symbole *s)
+{
+    switch(*s)
+    {
+        //case INT:
+       /* default:
+            automate->back(s);*/
+    }
+    return true;
+}

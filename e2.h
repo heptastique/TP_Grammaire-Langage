@@ -5,11 +5,12 @@
 
 #include "etat.h"
 
+class Automate;
 class E2 : public Etat {
 public :
     E2(string name);
     ~E2();
     void print() const;
-    bool transition(Automate *automate, Symbole *s);
+    bool transition(Automate &automate, Symbole *s);
 };
 

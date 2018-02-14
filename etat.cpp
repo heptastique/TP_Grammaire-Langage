@@ -3,3 +3,16 @@
 //
 
 #include "etat.h"
+
+Etat::Etat(string name)
+{
+    this->name = name;
+}
+
+
+Etat::~Etat() {}
+
+void Etat::print() const
+{
+
+}
