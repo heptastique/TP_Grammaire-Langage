@@ -5,7 +5,7 @@
 #include <iostream>
 #include "automate.h"
 
-Automate::Automate(string chaine
+Automate::Automate(string chaine)
 {
     lexer = new Lexer (chaine);
     this->chaine=chaine;
@@ -33,7 +33,8 @@ void Automate::reduction(int n, Symbole *s)
 {
     for(int i =0; i<n; i++)
     {
-        delete(etats.pop_back());
+        delete(etats.back());
         etats.pop_back();
     }
+    //etats.back()->transition(*this, s);
 }
