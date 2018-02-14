@@ -40,3 +40,6 @@ cmake-build-debug/*
 
 # CLion config files
 .idea
+
+# VS Code
+.vscode
