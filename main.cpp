@@ -3,8 +3,12 @@
 
 
 int main(void) {
+   string chaine;
 
-   Automate automate;
+   cout << "Entrez votre chaine :" << endl;
+   cin >> chaine;
+
+   Automate automate(chaine);
    automate.lecture();
 
    return 0;

@@ -5,20 +5,23 @@
 #include <iostream>
 #include "automate.h"
 
-void Automate::lecture() {
-    cout << "Entrez votre chaine :" << endl;
-    cin >> chaine;
+Automate::Automate(string chaine) {
+    lexer = new Lexer (chaine);
+    this->chaine=chaine;
+}
 
-    Lexer l(chaine);
+void Automate::lecture() {
 
     Symbole * s;
-    while(*(s=l.Consulter())!=FIN) {
+    while(*(s=lexer->Consulter())!=FIN) {
         s->Affiche();
         cout<<endl;
-        l.Avancer();
+        lexer->Avancer();
     }
 }
 
 void Automate::decalage(Symbole * s, Etat * e) {
-    // Todo
+    symboles.push(s);
+    etats.push(e);
+    lexer->Avancer();
 }

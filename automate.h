@@ -8,7 +8,7 @@ using namespace std;
 class Etat;
 class Automate {
 public:
-    Automate(){  }
+    Automate(string chaine);
     virtual ~Automate() { }
 
     /**
@@ -29,6 +29,7 @@ public:
 protected:
     string chaine;
 
+    Lexer * lexer;
     stack<Etat *> etats;
     stack<Symbole *> symboles;
 };
