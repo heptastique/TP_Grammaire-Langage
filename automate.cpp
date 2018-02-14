@@ -4,12 +4,10 @@
 
 #include <iostream>
 #include "automate.h"
+#include "etat.h"
+#include "expr.h"
 
 void Automate::lecture() {
-    cout << "Entrez votre chaine :" << endl;
-    cin >> chaine;
-
-    Lexer l(chaine);
 
     Symbole * s;
     while(*(s=l.Consulter())!=FIN) {
@@ -24,14 +22,29 @@ void Automate::decalage(Symbole * s, Etat * e) {
     etats.push(e);
     /*if(int(s)!=5)
     {
-		//l.Avancer();
+		l.Avancer();
 	}*/
 }
 
-void Automate::reduction(int n,Symbole * s) {
+void Automate::reduction(int n, Symbole * s) {
 	for(int i=0; i<n; i++)
 	{
 		etats.pop();
 	}
-	//etats.top()->transition(*this, s);
+	etats.top()->transition(*this, s);
+}
+
+void Automate::putSymbol(Symbole * s)
+{
+	symboles.push(s);
+}
+
+Symbole* Automate::popSymbol()
+{
+	return symboles.top();
+}
+
+void Automate::popAndDestroySymbol()
+{
+	symboles.pop();
 }

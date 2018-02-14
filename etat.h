@@ -4,7 +4,7 @@
 #pragma  once
 
 #include "automate.h"
-
+#include "expr.h"
 
 class Etat {
 public:

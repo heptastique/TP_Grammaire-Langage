@@ -4,7 +4,11 @@
 
 int main(void) {
 
-   Automate automate;
+	string chaine;
+    cout << "Entrez votre chaine :" << endl;
+    cin >> chaine;
+    
+   Automate automate(chaine);
    automate.lecture();
 
    return 0;

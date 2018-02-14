@@ -2,13 +2,14 @@
 
 #include <stack>
 #include "lexer.h"
+#include "expr.h"
 
 using namespace std;
 
 class Etat;
 class Automate {
 public:
-    Automate(){  }
+    Automate(string chaine) : l(chaine) {}
     virtual ~Automate() { }
 
     /**
@@ -25,10 +26,16 @@ public:
 
 
     void reduction(int n,Symbole * s);
+    
+    void putSymbol(Symbole * s);
+    
+    Symbole* popSymbol();
+    
+    void popAndDestroySymbol();
 
 protected:
-    string chaine;
-
+    Lexer l;
+	
     stack<Etat *> etats;
     stack<Symbole *> symboles;
 };
