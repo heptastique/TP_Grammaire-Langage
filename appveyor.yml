@@ -4,8 +4,14 @@ image:
 matrix:
   fast_finish: true
 
+environment:
+  matrix:
+    - target: mingw
+    - target: vs
+
 # skip unsupported combinations
 init:
+  - SET PATH=C:\MinGW\bin;%PATH%
   - set arch=
   - if "%arch%"=="Win64" ( set arch= Win64)
   - echo %arch%
@@ -13,17 +19,19 @@ init:
   - if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2017" ( set generator="Visual Studio 15 2017%arch%" )
   - if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2015" ( set generator="Visual Studio 14 2015%arch%" )
   - if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2013" ( set generator="Visual Studio 12 2013%arch%" )
+  - if "%target%"=="mingw" ( set generator="MinGW Makefiles" )
   - echo %generator%
 
 before_build:
   - mkdir build
   - cd build
   - cmake --version
-  - cmake .. -G %generator%
+  - if "%target%"=="vs" ( cmake .. -G %generator% )
+  - if "%target%"=="mingw" ( cmake .. -G %generator% -DCMAKE_SH="CMAKE_SH-NOTFOUND")
 
-build:
-  project: build/TP_Grammaire-Langage.sln
-  parallel: true
+build_script:
+  - if "%target%"=="mingw" ( C:\MinGW\bin\mingw32-make.exe )
+  - if "%target%"=="vs" ( msbuild TP_Grammaire-Langage.sln )
 
 notifications:
   - provider: Email
