@@ -9,7 +9,7 @@ Etat::Etat(string name) {
 }
 
 bool Etat::transition(Automate & automate, Symbole * s) {
-
+    return false;
 }
 
 Etat::~Etat() {}
