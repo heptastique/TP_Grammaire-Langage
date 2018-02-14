@@ -61,6 +61,9 @@ bool E7::transition(Automate &automate, Symbole *s)
             automate.reduction(3, s1);
         }
             break;
+        default:
+            cout << "Erreur: mauvaise syntaxe." << endl;
+            return true;
 
     }
     return false;

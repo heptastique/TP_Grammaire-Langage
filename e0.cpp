@@ -35,6 +35,9 @@ bool E0::transition(Automate &automate, Symbole *s)
             printTransition("EXPR", "etat0", "etat1");
             automate.decalage(s, new E1("etat1"));
             break;
+        default:
+            cout << "Erreur: mauvaise syntaxe." << endl;
+            return true;
 
     }
     return false;

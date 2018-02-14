@@ -35,6 +35,10 @@ bool E4::transition(Automate &automate, Symbole *s)
         case EXPR:
             printTransition("EXPR", "etat4", "etat7");
             automate.decalage(s, new E7("etat7"));
+            break;
+        default:
+            cout << "Erreur: mauvaise syntaxe." << endl;
+            return true;
     }
     return false;
 }

@@ -21,12 +21,41 @@ bool E3::transition(Automate &automate, Symbole *s)
         case ERREUR:
             cout << "Erreur: caractere interdit." << endl;
             return true;
-        default:
+        case PLUS:
+        {
             Symbole * s1 = automate.pop();
             s1->setIdent(5);
             printReduction(*s1, "etat3", "Lecture d'une 'val'");
             automate.reduction(1,s1);
+        }
             break;
+        case MULT:
+        {
+            Symbole * s1 = automate.pop();
+            s1->setIdent(5);
+            printReduction(*s1, "etat3", "Lecture d'une 'val'");
+            automate.reduction(1,s1);
+        }
+            break;
+        case CLOSEPAR:
+        {
+            Symbole * s1 = automate.pop();
+            s1->setIdent(5);
+            printReduction(*s1, "etat3", "Lecture d'une 'val'");
+            automate.reduction(1,s1);
+        }
+            break;
+        case FIN:
+        {
+            Symbole * s1 = automate.pop();
+            s1->setIdent(5);
+            printReduction(*s1, "etat3", "Lecture d'une 'val'");
+            automate.reduction(1,s1);
+        }
+            break;
+        default:
+            cout << "Erreur: mauvaise syntaxe." << endl;
+            return true;
     }
     return false;
 }

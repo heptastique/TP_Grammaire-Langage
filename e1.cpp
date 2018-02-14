@@ -35,6 +35,9 @@ bool E1::transition(Automate &automate, Symbole *s)
         case FIN:
             cout << "Caractere de fin." << endl;
             return true;
+        default:
+            cout << "Erreur: mauvaise syntaxe." << endl;
+            return true;
     }
     return false;
 }

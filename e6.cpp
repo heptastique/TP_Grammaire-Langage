@@ -36,6 +36,9 @@ bool E6::transition(Automate &automate, Symbole *s)
             printTransition("CLOSEPAR", "etat6", "etat9");
             automate.decalage(s, new E9("etat9"));
             break;
+        default:
+            cout << "Erreur: mauvaise syntaxe." << endl;
+            return true;
     }
     return false;
 }
