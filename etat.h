@@ -13,6 +13,7 @@ public:
     virtual ~Etat();
     void print() const;
     void printTransition(string symbole, string from, string to) const;
+    void printReduction(Symbole &s, string from, string message);
     virtual bool transition(Automate & automate, Symbole * s) = 0;
 protected:
     string name;

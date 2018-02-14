@@ -19,12 +19,12 @@ bool E3::transition(Automate &automate, Symbole *s)
     switch(*s)
     {
         case ERREUR:
-            cout << "Erreur: caractere interdit" << endl;
+            cout << "Erreur: caractere interdit." << endl;
             return true;
         default:
             Symbole * s1 = automate.pop();
             s1->setIdent(5);
-            printTransition("REDUCTION", "depuis 3", "avec default");
+            printReduction(*s1, "etat3", "Lecture d'une 'val'");
             automate.reduction(1,s1);
             break;
     }

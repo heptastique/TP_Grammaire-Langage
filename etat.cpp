@@ -20,5 +20,12 @@ void Etat::print() const
 
 void Etat::printTransition(string symbole, string from, string to) const
 {
-    cout << from << " - " << to << " avec s:" << symbole << endl;
+    cout << "Transition depuis " << from << " vers " << to << ". Symbole: " << symbole <<  endl;
+}
+
+void Etat::printReduction(Symbole &s, string from, string message)
+{
+    cout << "Reduction  depuis " << from << " " << message << ". Symbole: ";
+    s.Affiche();
+    cout << endl;
 }

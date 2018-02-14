@@ -22,10 +22,10 @@ bool E1::transition(Automate &automate, Symbole *s)
     switch(*s)
     {
         case ERREUR:
-            cout << "Erreur: caractere interdit" << endl;
+            cout << "Erreur: caractere interdit." << endl;
             return true;
         case PLUS:
-            printTransition("PLUS", "etat", "etat4");
+            printTransition("PLUS", "etat1", "etat4");
             automate.decalage(s, new E4("etat4"));
             break;
         case MULT:
@@ -33,7 +33,7 @@ bool E1::transition(Automate &automate, Symbole *s)
             automate.decalage(s, new E5("etat5"));
             break;
         case FIN:
-            cout << "THIS IS THE END" << endl;
+            cout << "Caractere de fin." << endl;
             return true;
     }
     return false;

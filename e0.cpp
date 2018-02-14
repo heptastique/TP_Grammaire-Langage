@@ -21,7 +21,7 @@ bool E0::transition(Automate &automate, Symbole *s)
     switch(*s)
     {
         case ERREUR:
-            cout << "Erreur: caractere interdit" << endl;
+            cout << "Erreur: caractere interdit." << endl;
             return true;
         case INT:
             printTransition("INT", "etat0", "etat3");

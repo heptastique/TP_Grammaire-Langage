@@ -23,12 +23,45 @@ bool E9::transition(Automate &automate, Symbole *s)
         case ERREUR:
             cout << "Erreur: caractere interdit" << endl;
             return true;
-        default:
-            printTransition("REDUCTION", "depuis 9", "avec default");
+        case PLUS:
+        {
             automate.pop();
             auto s1 = (Expr *) automate.pop();
             automate.pop();
+            printReduction(*s1, "etat9", "Fin de parenthse");
             automate.reduction(3, s1);
+        }
+            break;
+        case MULT:
+        {
+            automate.pop();
+            auto s1 = (Expr *) automate.pop();
+            automate.pop();
+            printReduction(*s1, "etat9", "Fin de parenthse");
+            automate.reduction(3, s1);
+        }
+            break;
+        case CLOSEPAR:
+        {
+            automate.pop();
+            auto s1 = (Expr *) automate.pop();
+            automate.pop();
+            printReduction(*s1, "etat9", "Fin de parenthse");
+            automate.reduction(3, s1);
+        }
+            break;
+        case FIN:
+        {
+            automate.pop();
+            auto s1 = (Expr *) automate.pop();
+            automate.pop();
+            printReduction(*s1, "etat9", "Fin de parenthse");
+            automate.reduction(3, s1);
+        }
+            break;
+
+
+
     }
     return false;
 }

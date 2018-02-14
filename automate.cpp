@@ -29,19 +29,18 @@ void Automate::lecture()
         cout<<endl;
         lexer->Avancer();
     }*/
-
+    cout << "Le resultat est : ";
+    symboles.back()->Affiche();
 }
 
 void Automate::decalage(Symbole * s, Etat * e)
 {
-    cout << (int)*s << endl;
     symboles.push_back(s);
     etats.push_back(e);
     if((int) *s < 5)
     {
         lexer->Avancer();
     }
-    symboles.back()->Affiche();
 }
 
 void Automate::reduction(int n, Symbole *s)
