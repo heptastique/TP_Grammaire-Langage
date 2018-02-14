@@ -1,4 +1,5 @@
 # include "e0.h"
+# include "e1.h"
 # include "e2.h"
 # include "e3.h"
 
@@ -21,6 +22,9 @@ bool E0::transition(Automate & automate, Symbole * symbole)
 			break;
 		case OPENPAR:
 			automate.decalage(symbole, new E2("etat2"));
+			break;
+		case EXPR:
+			automate.decalage(symbole, new E1("etat1"));
 			break;
 		default:
 			break;

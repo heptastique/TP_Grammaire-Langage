@@ -1,24 +1,25 @@
 #pragma once
 
 #include <string>
+
 using namespace std;
 
-enum Identificateurs { OPENPAR, CLOSEPAR, PLUS, MULT, INT, FIN, ERREUR };
+enum identificateurs { OPENPAR, CLOSEPAR, PLUS, MULT, INT, FIN, ERREUR, EXPR };
 
-const string Etiquettes[] = { "OPENPAR", "CLOSEPAR", "PLUS", "MULT", "INT", "FIN", "ERREUR" };
+const string etiquettes[] = { "OPENPAR", "CLOSEPAR", "PLUS", "MULT", "INT", "FIN", "ERREUR", "EXPR" };
 
 class Symbole
 {
    public:
 
-      Symbole(int i) : ident(i) {  }
-      virtual ~Symbole() { }
-      operator int() const { return ident; }
-      virtual void Affiche();
+      Symbole(int id);
+      virtual ~Symbole();
+      operator int() const;
+      virtual void affiche();
 
    protected:
 
-      int ident;
+      int id;
 };
 
 class Entier : public Symbole
@@ -27,7 +28,7 @@ class Entier : public Symbole
 
       Entier(int v) : Symbole(INT), valeur(v) { }
       ~Entier() { }
-      virtual void Affiche();
+      virtual void affiche();
 
    protected:
 

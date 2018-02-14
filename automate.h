@@ -1,6 +1,6 @@
 # pragma once
 
-# include <stack>
+# include <vector>
 # include "lexer.h"
 
 using namespace std;
@@ -24,8 +24,11 @@ class Automate
 
 	protected:
 
+		void printEtats();
+		void printSymboles();
+
 		string chaine;
 
-		stack <Etat *> etats;
-		stack <Symbole *> symboles;
+		vector <Etat *> etats;
+		vector <Symbole *> symboles;
 };

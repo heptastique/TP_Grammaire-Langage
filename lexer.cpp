@@ -1,16 +1,15 @@
 #include "lexer.h"
 
-Symbole * Lexer::Consulter()
+Symbole * Lexer::consulter()
 {
    if (!tampon)
-{
+   {
       if (tete == flux.length())
       {
          tampon = new Symbole(FIN);
       }
       else
       {
-
          switch (flux[tete])
 	 {
             case '(':
@@ -55,7 +54,7 @@ Symbole * Lexer::Consulter()
    return tampon;
 }
 
-void Lexer::Avancer()
+void Lexer::avancer()
 {
    tampon = nullptr;
 }

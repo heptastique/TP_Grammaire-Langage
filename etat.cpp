@@ -1,3 +1,5 @@
+# include <iostream>
+
 # include "etat.h"
 
 Etat::Etat(string name)
@@ -8,6 +10,11 @@ Etat::Etat(string name)
 Etat::~Etat()
 {
 
+}
+
+void Etat::print() const
+{
+	cout << name;
 }
 
 bool Etat::transition (Automate & automage, Symbole * symbole)
