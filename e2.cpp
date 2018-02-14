@@ -2,6 +2,7 @@
 // Created by Vincent on 14/02/2018.
 //
 
+#include <iostream>
 #include "e2.h"
 #include "e3.h"
 #include "e6.h"
@@ -19,6 +20,9 @@ bool E2::transition(Automate &automate, Symbole *s)
 {
     switch(*s)
     {
+        case ERREUR:
+            cout << "Erreur: caractere interdit" << endl;
+            return true;
         case INT:
             printTransition("INT", "etat2", "etat3");
             automate.decalage(s ,new E3("etat3"));

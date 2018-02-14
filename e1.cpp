@@ -21,6 +21,9 @@ bool E1::transition(Automate &automate, Symbole *s)
 {
     switch(*s)
     {
+        case ERREUR:
+            cout << "Erreur: caractere interdit" << endl;
+            return true;
         case PLUS:
             printTransition("PLUS", "etat", "etat4");
             automate.decalage(s, new E4("etat4"));

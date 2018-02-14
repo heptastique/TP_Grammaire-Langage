@@ -1,6 +1,7 @@
 //
 // Created by Vincent on 14/02/2018.
 //
+#include <iostream>
 #include "e8.h"
 #include "expr.h"
 
@@ -18,6 +19,9 @@ bool E8::transition(Automate &automate, Symbole *s)
 {
     switch(*s)
     {
+        case ERREUR:
+            cout << "Erreur: caractere interdit" << endl;
+            return true;
         default:
             printTransition("REDUCTION", "depuis 8", "avec default");
             auto s1 = (Expr*) automate.pop();

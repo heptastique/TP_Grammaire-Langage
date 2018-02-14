@@ -2,6 +2,7 @@
 // Created by Vincent on 14/02/2018.
 //
 
+#include <iostream>
 #include "e7.h"
 #include "e5.h"
 #include "expr.h"
@@ -20,7 +21,9 @@ bool E7::transition(Automate &automate, Symbole *s)
 {
     switch(*s)
     {
-
+        case ERREUR:
+            cout << "Erreur: caractere interdit" << endl;
+            return true;
         case MULT:
             printTransition("MULT", "etat7", "etat5");
             automate.decalage(s, new E5("etat5"));

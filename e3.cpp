@@ -2,6 +2,7 @@
 // Created by Vincent on 14/02/2018.
 //
 
+#include <iostream>
 #include "e3.h"
 
 E3::E3(string name) : Etat(name){}
@@ -17,6 +18,9 @@ bool E3::transition(Automate &automate, Symbole *s)
 {
     switch(*s)
     {
+        case ERREUR:
+            cout << "Erreur: caractere interdit" << endl;
+            return true;
         default:
             Symbole * s1 = automate.pop();
             s1->setIdent(5);

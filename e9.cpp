@@ -2,6 +2,7 @@
 // Created by Vincent on 14/02/2018.
 //
 
+#include <iostream>
 #include "e9.h"
 #include "expr.h"
 
@@ -19,6 +20,9 @@ bool E9::transition(Automate &automate, Symbole *s)
 {
     switch(*s)
     {
+        case ERREUR:
+            cout << "Erreur: caractere interdit" << endl;
+            return true;
         default:
             printTransition("REDUCTION", "depuis 9", "avec default");
             automate.pop();
