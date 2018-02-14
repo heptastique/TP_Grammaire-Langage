@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include "etat.h"
 #include "automate.h"
 
 void Automate::lecture() {
@@ -26,7 +27,7 @@ void Automate::decalage(Symbole * s, Etat * e) {
 
 void Automate::reduction(int n, Symbole *s) {
     for(int i = 0; i<n; i++) {
-        //etats.back()->transition(*this, s);
         etats.pop_back();
     }
+    etats.back()->transition(*this, s);
 }
