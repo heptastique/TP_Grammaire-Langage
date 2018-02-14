@@ -1,4 +1,5 @@
 #include "e0.h"
+#include "e1.h"
 #include "e2.h"
 #include "e3.h"
 
@@ -13,6 +14,9 @@ bool E0::transition(Automate &automate, Symbole *s) {
             break;
         case OPENPAR:
             automate.decalage(s, new E2("E2"));
+            break;
+        case EXPR:
+            automate.decalage(s, new E1("E1"));
             break;
     }
     return false;
