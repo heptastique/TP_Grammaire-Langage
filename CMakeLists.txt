@@ -8,11 +8,15 @@ set(SOURCES
         main.cpp
         lexer.cpp
         symbole.cpp
+	etat.cpp
+	automate.cpp
         )
 
 set(HEADERS
         lexer.h
         symbole.h
+	etat.h
+	automate.h
         )
 
 
