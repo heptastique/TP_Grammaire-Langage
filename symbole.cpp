@@ -6,10 +6,12 @@ void Symbole::Affiche()
    cout<<Etiquettes[ident];
 }
 
+
+
 void Entier::Affiche()
 {
-   Symbole::Affiche();
-   cout<<"("<<valeur<<")";
+   // Symbole::Affiche();
+   cout<< valeur;
 }
 
 void Symbole::setIdent(int ident)

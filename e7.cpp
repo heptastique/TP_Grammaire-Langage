@@ -17,13 +17,12 @@ void E7::print() const
     Etat::print();
 }
 
-bool E7::transition(Automate &automate, Symbole *s)
+enum Statut E7::transition(Automate &automate, Symbole *s)
 {
     switch (*s)
     {
         case ERREUR:
-            cout << "Erreur: caractere interdit." << endl;
-            return true;
+            return ERREUR_SYNTAXE;
         case MULT:
             printTransition("MULT", "etat7", "etat5");
             automate.decalage(s, new E5("etat5"));
@@ -62,10 +61,9 @@ bool E7::transition(Automate &automate, Symbole *s)
         }
             break;
         default:
-            cout << "Erreur: mauvaise syntaxe." << endl;
-            return true;
+            return ERREUR_GRAMMAIRE;
 
     }
-    return false;
+    return EN_COURS;
 }
 

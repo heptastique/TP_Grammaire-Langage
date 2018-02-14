@@ -18,19 +18,29 @@ Automate::Automate(string chaine)
 void Automate::lecture()
 {
     Symbole * s;
-    bool fini = false;
-    while(!fini)
+    Statut statut = EN_COURS;
+    while(statut == EN_COURS)
     {
         s=lexer->Consulter();
-        fini = etats.back()->transition(*this, s);
+        statut = etats.back()->transition(*this, s);
     }
-    /*while(*(s=lexer->Consulter())!=FIN) {
-        s->Affiche();
-        cout<<endl;
-        lexer->Avancer();
-    }*/
-    cout << "Le resultat est : ";
-    symboles.back()->Affiche();
+
+    switch (statut){
+        case TERMINE:
+            cout << "Le resultat est : ";
+            symboles.back()->Affiche();
+            break;
+        case ERREUR_GRAMMAIRE:
+            cout << "Erreur de grammaire" << endl;
+            break;
+        case ERREUR_SYNTAXE:
+            cout << "Erreur de syntaxe" << endl;
+            break;
+        default:
+            cout << "default ne devrait pas arriver" << endl;
+            break;
+    }
+
 }
 
 void Automate::decalage(Symbole * s, Etat * e)

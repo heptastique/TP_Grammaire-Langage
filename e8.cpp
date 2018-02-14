@@ -15,13 +15,12 @@ void E8::print() const
     Etat::print();
 }
 
-bool E8::transition(Automate &automate, Symbole *s)
+enum Statut E8::transition(Automate &automate, Symbole *s)
 {
     switch(*s)
     {
         case ERREUR:
-            cout << "Erreur: caractere interdit" << endl;
-            return true;
+            return ERREUR_SYNTAXE;
         case PLUS:
         {
             auto s1 = (Expr*) automate.pop();
@@ -67,9 +66,8 @@ bool E8::transition(Automate &automate, Symbole *s)
         }
             break;
         default:
-            cout << "Erreur: mauvaise syntaxe." << endl;
-            return true;
+            return ERREUR_GRAMMAIRE;
     }
-    return false;
+    return EN_COURS;
 }
 

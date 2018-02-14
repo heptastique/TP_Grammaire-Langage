@@ -10,6 +10,6 @@ public :
     E7(string name);
     ~E7();
     void print() const;
-    bool transition(Automate &automate, Symbole *s);
+    enum Statut transition(Automate &automate, Symbole *s);
 };
 
