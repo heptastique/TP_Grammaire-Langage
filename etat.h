@@ -3,7 +3,7 @@
 //
 #pragma  once
 
-#include "Symbole.h"
+#include "symbole.h"
 #include "automate.h"
 
 
