@@ -20,5 +20,18 @@ void Automate::lecture() {
 }
 
 void Automate::decalage(Symbole * s, Etat * e) {
-    // Todo
+    symboles.push(s);
+    etats.push(e);
+    /*if(int(s)!=5)
+    {
+		//l.Avancer();
+	}*/
+}
+
+void Automate::reduction(int n,Symbole * s) {
+	for(int i=0; i<n; i++)
+	{
+		etats.pop();
+	}
+	//etats.top()->transition(*this, s);
 }

@@ -10,7 +10,16 @@ set(SOURCES
         symbole.cpp
         automate.cpp
         etat.cpp
+	e0.cpp
         e1.cpp
+	e2.cpp
+	e3.cpp
+	e4.cpp
+	e5.cpp
+	e6.cpp
+	e7.cpp
+	e8.cpp
+	e9.cpp
         expr.cpp)
 
 set(HEADERS
@@ -18,7 +27,16 @@ set(HEADERS
         symbole.h
         automate.h
         etat.h
-        e1.h
+        e0.h
+	e1.h
+        e2.h
+        e3.h
+        e4.h
+        e5.h
+        e6.h
+        e7.h
+        e8.h
+        e9.h
         expr.h)
 
 

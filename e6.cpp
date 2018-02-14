@@ -2,15 +2,16 @@
 // Created by Vincent on 13/02/2018.
 //
 
-#include "e1.h"
+#include "e6.h"
 #include "e4.h"
 #include "e5.h"
+#include "e9.h"
 
-E1::E1(string name) : Etat(name) {}
+E6::E6(string name) : Etat(name) {}
 
-E1::~E1() {}
+E6::~E6() {}
 
-bool E1::transition(Automate & automate, Symbole * s)
+bool E6::transition(Automate & automate, Symbole * s)
 {
 	switch(*s) {
 		case PLUS:
@@ -19,7 +20,8 @@ bool E1::transition(Automate & automate, Symbole * s)
 		case MULT:
 			automate.decalage(s, new E5("E5"));
 			break;
-		case FIN:
+		case CLOSEPAR:
+			automate.decalage(s, new E9("E9"));
 			break;
 	}
 	return false;

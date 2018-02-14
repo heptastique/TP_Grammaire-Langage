@@ -1,17 +1,11 @@
-//
-// Created by Vincent on 13/02/2018.
-//
 #pragma once
 
 #include "etat.h"
 
-class E1 : public Etat {
+class E9 : public Etat {
 public:
-    E1(string name);
-    ~E1();
+    E9(string name);
+    ~E9();
     void print() const;
     bool transition(Automate & automate, Symbole * s);
 };
-
-
-

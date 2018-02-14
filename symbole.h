@@ -27,3 +27,7 @@ class Entier : public Symbole {
       int valeur;
 };
 
+/*class Plus : public Symbole {
+	public:
+		
+}*/
