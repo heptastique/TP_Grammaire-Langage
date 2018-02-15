@@ -9,7 +9,7 @@ using namespace std;
 class Etat;
 class Automate {
 public:
-    Automate(){  }
+    Automate(string chaine);
     virtual ~Automate() { }
 
     /**
@@ -24,11 +24,14 @@ public:
      */
     void decalage(Symbole * s, Etat * e);
 
+    Symbole * pop();
 
     void reduction(int n,Symbole * s);
 
 protected:
     string chaine;
+
+    Lexer * lexer;
 
     vector<Etat *> etats;
     stack<Symbole *> symboles;
