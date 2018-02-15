@@ -24,6 +24,7 @@ bool E0::transition(Automate & automate, Symbole * symbole)
 			automate.decalage(symbole, new E2("etat2"));
 			break;
 		case EXPR:
+			//cout << "Etat 0 Symbole EXPR" << endl;
 			automate.decalage(symbole, new E1("etat1"));
 			break;
 		default:

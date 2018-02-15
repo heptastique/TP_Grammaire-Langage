@@ -14,9 +14,13 @@ E1::~E1()
 
 bool E1::transition(Automate & automate, Symbole * symbole)
 {
+	cout << "Etat 1" << endl;
+	symbole->print();
+
 	switch(*symbole)
 	{
 		case PLUS:
+			cout << "Etat 1 Symbole +" << endl;
 			automate.decalage(symbole, new E4("etat4"));
 			break;
 		case MULT:

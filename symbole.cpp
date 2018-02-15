@@ -16,14 +16,14 @@ Symbole::operator int() const
 	return id;
 }
 
-void Symbole::affiche()
+void Symbole::print()
 {
 	cout << etiquettes[id];
 }
 
-void Entier::affiche()
+void Entier::print()
 {
-	Symbole::affiche();
+	Symbole::print();
 	cout << "(" << valeur << ")";
 }
 

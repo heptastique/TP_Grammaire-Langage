@@ -22,6 +22,8 @@ class Automate
 
 		void reduction(int n, Symbole * symbole);
 
+		void popSymbole();
+
 	protected:
 
 		void printEtats();
@@ -29,6 +31,7 @@ class Automate
 
 		string chaine;
 
+		Lexer * lexer;
 		vector <Etat *> etats;
 		vector <Symbole *> symboles;
 };

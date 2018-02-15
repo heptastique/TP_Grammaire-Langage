@@ -48,7 +48,7 @@ void Automate::printSymboles()
 
 		while (symbole != NULL)
 		{
-			symbole->affiche();
+			symbole->print();
 			cout << ", ";
 			i = i + 1;
 			symbole = symboles[i];
@@ -62,38 +62,55 @@ void Automate::lecture()
 {
 	cin >> chaine;
 
-	Lexer lexer(chaine);
+	lexer = new Lexer(chaine);
 
 	Symbole * symbole;
-	E0 * e0 = new E0("etat0");
 
-	/*while ( *(symbole = lexer.consulter()) != FIN)
+	Etat * e0 = new E0("etat0");
+	etats.push_back(e0);
+
+	/*while ( *(symbole = lexer->consulter()) != FIN)
 	{
 		symbole->affiche();
 		cout << endl;
-		lexer.avancer();
+		lexer->avancer();
 	}*/
 
 	printEtats();
 	printSymboles();
 
-	symbole = lexer.consulter();
-	e0->transition(*this, symbole);
-	lexer.avancer();
+	symbole = lexer->consulter();
+	etats.back()->transition(*this, symbole);
 
 	printEtats();
 	printSymboles();
 
-	symbole = lexer.consulter();
+	symbole = lexer->consulter();
 	etats.back()->transition(*this, symbole);
-	lexer.avancer();
 
 	printEtats();
 	printSymboles();
 
-	symbole = lexer.consulter();
+	symbole = lexer->consulter();
 	etats.back()->transition(*this, symbole);
-	lexer.avancer();
+
+	printEtats();
+	printSymboles();
+
+	symbole = lexer->consulter();
+	etats.back()->transition(*this, symbole);
+
+	printEtats();
+	printSymboles();
+
+	symbole = lexer->consulter();
+	etats.back()->transition(*this, symbole);
+
+	printEtats();
+	printSymboles();
+
+	symbole = lexer->consulter();
+	etats.back()->transition(*this, symbole);
 
 	printEtats();
 	printSymboles();
@@ -101,20 +118,51 @@ void Automate::lecture()
 
 void Automate::decalage(Symbole * symbole, Etat * etat)
 {
+	cout << "Automate Decalage" << endl;
+	cout << "	Symbole :"<< endl;
+ 	symbole->print();
+	cout << endl;
+	cout << "	Etat :" << endl;
+	etat->print();
+	cout << endl;
+
 	symboles.push_back(symbole);
 	etats.push_back(etat);
+
+	if ((int) * symbole < 5)
+	{
+		lexer->avancer();
+	}
 }
 
 void Automate::reduction(int n, Symbole * symbole)
 {
+	cout << "Automate Reduction" << endl;
+	cout << "	Nombre d'Etats : " << n << endl;
+	cout << "	Symbole :"<< endl;
+ 	symbole->print();
+	cout << endl;
+
 	for (int i = 0; i < n; i = i + 1)
 	{
 		delete(etats.back());
 		etats.pop_back();
 	}
 
+	//symboles.push_back(symbole);
+
 	if (etats.size() != 0)
 	{
+		//cout << "Automate Transition" << endl;
+
 		etats.back()->transition(*this, symbole);
 	}
+}
+
+void Automate::popSymbole()
+{
+	//cout << "Automate Pop Symbole" << endl;
+
+	delete(symboles.back());
+	symboles.pop_back();
 }
