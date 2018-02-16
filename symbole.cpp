@@ -10,3 +10,7 @@ void Entier::Affiche() {
    cout<<"("<<valeur<<")";
 }
 
+void Symbole::setIdent(int ident)
+{
+   this->ident = ident;
+}
