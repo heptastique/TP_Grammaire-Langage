@@ -17,7 +17,7 @@ bool E7::transition(Automate & automate, Symbole * symbole)
 {
 	// Switch sur le symbole lu
 	switch(*symbole)
-	{	
+	{
 		// Lexture de '+'
 		case PLUS:
 			// Depilage du dernier Symbole
@@ -25,7 +25,7 @@ bool E7::transition(Automate & automate, Symbole * symbole)
 			// Reduction
 				// Depilage de 1 Etat
 				// Creation du symbole EXPR
-			automate.reduction(1, new Symbole(7));		
+			automate.reduction(1, new Symbole(7));
 			break;
 		// Lecture de '*'
 		case MULT:
@@ -39,16 +39,18 @@ bool E7::transition(Automate & automate, Symbole * symbole)
 			// Reduction
 				// Depilage de 1 Etat
 				// Creation du symbole EXPR
-			automate.reduction(1, new Symbole(7));		
+			automate.reduction(1, new Symbole(7));
 			break;
 		// Lecture de '$'
 		case FIN:
 			// Depilage du dernier Symbole
 			automate.popSymbole();
+			automate.popSymbole();
+			automate.popSymbole();
 			// Reduction
-				// Depilage de 1 Etat
-				// Creation du symbole EXPR
-			automate.reduction(1, new Symbole(7));		
+				// Depilage de 3 Etats
+				// Creation du symbole FIN
+			automate.reduction(3, new Symbole(5));
 			break;
 		// Sinon
 		default:
