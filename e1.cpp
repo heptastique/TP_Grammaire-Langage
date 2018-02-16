@@ -19,7 +19,7 @@ bool E1::transition(Automate &automate, Symbole *s) {
             automate.decalage(s, new E5("E5"));
             break;
         case FIN:
-            // TODO
+            return true;
             break;
     }
     return false;
