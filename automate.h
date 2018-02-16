@@ -14,14 +14,20 @@ class Automate
 		Automate();
 		virtual ~Automate();
 
-		// Lecture de la chaine de caracteres entree
+		// Evaluation de la chaine entree par l'utilisateur
 		void lecture();
 
-		// Empile un symbole et un etat
+		// Decalage
+			// Symbole lu
+			// Etat destination
 		void decalage(Symbole * symbole, Etat * etat);
 
+		// Reduction
+			// Nombre d'Etats a depiler
+			// Symbole cree
 		void reduction(int n, Symbole * symbole);
 
+		// Depiler le dernier Symbole
 		void popSymbole();
 
 	protected:
@@ -29,9 +35,13 @@ class Automate
 		void printEtats();
 		void printSymboles();
 
+		// Chaine entree par l'utilisateur
 		string chaine;
 
+		// Lexer de la chaine
 		Lexer * lexer;
+		// Pile des Etats
 		vector <Etat *> etats;
+		// Pile des Symboles
 		vector <Symbole *> symboles;
 };

@@ -17,6 +17,8 @@ void Etat::print() const
 	cout << name;
 }
 
+// Transition
+	// Symbole lu
 bool Etat::transition (Automate & automage, Symbole * symbole)
 {
 

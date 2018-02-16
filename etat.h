@@ -12,6 +12,9 @@ class Etat
 		virtual ~Etat();
 
 		void print() const;
+		
+		// Transition
+			// Symbole lu
 		virtual bool transition(Automate & automate, Symbole * symbole) = 0;
 
 	protected:

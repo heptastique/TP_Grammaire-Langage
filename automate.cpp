@@ -66,7 +66,7 @@ void Automate::lecture()
 	// Lecture de la chaine de l'utilisateur
 	cin >> chaine;
 
-	// Creation du lexer
+	// Initialisation du lexer
 	lexer = new Lexer(chaine);
 
 	// Symbole de la chaine en cours de lecture

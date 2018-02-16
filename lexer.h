@@ -7,17 +7,22 @@ using namespace std;
 
 class Lexer
 {
-   public:
+	public:
 
-      Lexer(string s) : flux(s), tete(0), tampon(nullptr) { }
-      ~Lexer() { }
+		Lexer(string s) : flux(s), tete(0), tampon(nullptr) { }
+		~Lexer() { }
 
-      Symbole * consulter();
-      void avancer();
+		// Lecture d'un Symbole de la chaine
+		Symbole * consulter();
+		// Avancement de la tete de lecture
+		void avancer();
 
-   protected:
+	protected:
 
-      string flux;
-      int tete;
-      Symbole * tampon;
+		// Chaine a lire
+		string flux;
+		// Position de la tete de lecture dans la chaine
+		int tete;
+		// Symbole en cours de lecture
+		Symbole * tampon;
 };
