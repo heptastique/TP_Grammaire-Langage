@@ -28,7 +28,7 @@ class Automate
 		void reduction(int n, Symbole * symbole);
 
 		// Depiler le dernier Symbole
-		void popSymbole();
+		Symbole * popSymbole();
 
 	protected:
 

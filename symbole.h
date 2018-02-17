@@ -10,28 +10,35 @@ const string etiquettes[] = { "OPENPAR", "CLOSEPAR", "PLUS", "MULT", "INT", "FIN
 
 class Symbole
 {
-   public:
+	public:
 
-      Symbole(int id);
-      virtual ~Symbole();
-      operator int() const;
-      virtual void print();
+		Symbole(int id);
+		virtual ~Symbole();
 
-   protected:
+		operator int() const;
+		virtual void print();
 
-      int id;
+		void setId(int id);
+
+	protected:
+
+		int id;
 };
 
 class Entier : public Symbole
 {
-   public:
+	public:
 
-      Entier(int v) : Symbole(INT), valeur(v) { }
-      ~Entier() { }
-      virtual void print();
+		Entier(int v) : Symbole(INT), valeur(v) { }
+		~Entier() { }
 
-   protected:
+		virtual void print();
 
-      int valeur;
+		int getValeur();
+		void setValeur(int valeur);
+
+	protected:
+
+		int valeur;
 };
 

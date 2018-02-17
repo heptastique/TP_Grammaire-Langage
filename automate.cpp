@@ -19,19 +19,10 @@ void Automate::printEtats()
 {
 	cout << "Etats : {";
 
-	int i = 0;
-
-	if (etats.size() != 0)
+	for (int i = 0; i < etats.size(); i = i + 1)
 	{
-		Etat * etat = etats[0];
-
-		while (etat != NULL)
-		{
-			etat->print();
-			cout << ", ";
-			i = i + 1;
-			etat = etats[i];
-		}
+		etats[i]->print();
+		cout << ", ";
 	}
 
 	cout << "}" << endl;
@@ -42,19 +33,10 @@ void Automate::printSymboles()
 {
 	cout << "Symboles : {";
 
-	int i = 0;
-
-	if (symboles.size() != 0)
+	for (int i = 0; i < symboles.size(); i = i + 1)
 	{
-		Symbole * symbole = symboles[0];
-
-		while (symbole != NULL)
-		{
-			symbole->print();
-			cout << ", ";
-			i = i + 1;
-			symbole = symboles[i];
-		}
+		symboles[i]->print();
+		cout << ", ";
 	}
 
 	cout << "}" << endl;
@@ -77,14 +59,16 @@ void Automate::lecture()
 	// Ajout de l'etat initial a la pile des Etats
 	etats.push_back(e0);
 
-	/*while ( *(symbole = lexer->consulter()) != FIN)
+	/*
+	while ( *(symbole = lexer->consulter()) != FIN)
 	{
 		symbole->affiche();
 		cout << endl;
 		lexer->avancer();
-	}*/
+	}
+	*/
 
-	for (int i = 0; i < 7; i = i + 1)
+	for (int i = 0; i < 8; i = i + 1)
 	{
 		printEtats();
 		printSymboles();
@@ -102,13 +86,15 @@ void Automate::lecture()
 	// Vers l'etat de destination
 void Automate::decalage(Symbole * symbole, Etat * etat)
 {
+	/*
 	cout << "Automate Decalage" << endl;
-	cout << "	Symbole :"<< endl;
+	cout << "	Symbole : ";
  	symbole->print();
 	cout << endl;
-	cout << "	Etat :" << endl;
+	cout << "	Etat : ";
 	etat->print();
 	cout << endl;
+	*/
 
 	// Empilage du nouveau symbole
 	symboles.push_back(symbole);
@@ -130,20 +116,36 @@ void Automate::decalage(Symbole * symbole, Etat * etat)
 	// Symbole cree par la reduction
 void Automate::reduction(int n, Symbole * symbole)
 {
+	/*
 	cout << "Automate Reduction" << endl;
 	cout << "	Nombre d'Etats : " << n << endl;
-	cout << "	Symbole :"<< endl;
+	cout << "	Symbole : ";
  	symbole->print();
 	cout << endl;
+	*/
+
+	//printEtats();
 
 	// Pour le nombre d'Etats a depiler
 	for (int i = 0; i < n; i = i + 1)
 	{
+		//cout << "Depilage de l'Etat :" << endl;
+		//etats.back()->print();
+		//cout << endl;
+
 		// Depiler le dernier Etat de la pile des Etats
 		delete(etats.back());
 		etats.pop_back();
+
+		//printEtats();
 	}
-	
+
+	//cout << " 1 : " << endl;
+	//printEtats();
+
+	//cout << "BACK :" << endl;
+	//etats.back()->print();
+
 	// Si la pile des Etats n'est pas vide
 	// (Securite, probablement inutile)
 	if (etats.size() != 0)
@@ -152,12 +154,25 @@ void Automate::reduction(int n, Symbole * symbole)
 			// En fonction du Symbole cree par la reduction
 		etats.back()->transition(*this, symbole);
 	}
+
+	//cout << " 2 : " << endl;
+	//printEtats();
+
+	//cout << "BACK :" << endl;
+	//etats.back()->print();
 }
 
 // Depiler le dernier Symbole de la pile des Symboles
-void Automate::popSymbole()
+Symbole * Automate::popSymbole()
 {
+	//cout << "Depilage du Symbole :" << endl;
+	//symboles.back()->print();
+	//cout << endl;
+
 	// Depiler le dernier Symbole de la pile des Symboles
-	delete(symboles.back());
+	Symbole * symbole = symboles.back();
+
 	symboles.pop_back();
+
+	return symbole;
 }

@@ -17,8 +17,6 @@ E1::~E1()
 bool E1::transition(Automate & automate, Symbole * symbole)
 {
 	// Switch sur le Symbole lu
-	symbole->print();
-
 	switch(*symbole)
 	{
 		// Lecture de '+'
@@ -30,6 +28,9 @@ bool E1::transition(Automate & automate, Symbole * symbole)
 		case MULT:
 			// Decalage vers l'Etat 5
 			automate.decalage(symbole, new E5("etat5"));
+			break;
+		case FIN:
+			cout << "TERMINE" << endl;
 			break;
 		// Sinon
 		default:

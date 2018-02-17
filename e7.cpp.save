@@ -15,15 +15,13 @@ E7::~E7()
 	// A la lecture du Symbole
 bool E7::transition(Automate & automate, Symbole * symbole)
 {
-	Symbole * lastSymbole;
-	Symbole * s2;
-
-	Entier * e1;
-	Entier * e2;
-
 	// Switch sur le symbole lu
 	switch(*symbole)
 	{
+		case EXPR:
+			automate.popSymbole();			automate.popSymbole();
+			automate.reduction(3, new Symbole(7));
+			break;
 		// Lexture de '+'
 		case PLUS:
 			// Depilage du dernier Symbole
@@ -50,14 +48,11 @@ bool E7::transition(Automate & automate, Symbole * symbole)
 		// Lecture de '$'
 		case FIN:
 			// Depilage du dernier Symbole
-			e1 = (Entier *) automate.popSymbole();
 			automate.popSymbole();
-			e2 = (Entier *) automate.popSymbole();
-			e2->setValeur(e1->getValeur() + e2->getValeur());
 			// Reduction
-				// Depilage de 3 Etats
+				// Depilage de 1 Etat
 				// Creation du symbole EXPR
-			automate.reduction(3, e2);
+			automate.reduction(1, new Symbole(7));
 			break;
 		// Sinon
 		default:
