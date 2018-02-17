@@ -43,3 +43,6 @@ cmake-build-debug/*
 
 # VS Code
 .vscode
+
+# VS
+.vs
