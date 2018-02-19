@@ -12,6 +12,8 @@ bool E7::transition(Automate &automate, Symbole *s) {
     
     switch (*s) {
         case PLUS:
+        case CLOSEPAR:
+        case FIN:
             s1 = (Entier *) automate.pop();
             delete(automate.pop());
             s2 = (Entier *) automate.pop();
