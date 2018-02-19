@@ -21,46 +21,16 @@ bool E3::transition(Automate & automate, Symbole * symbole)
 	// Switch sur le Symbole lu
 	switch(*symbole)
 	{
-		// Lexture de '+'
+		// Lexture de '+', '*', ')', '$'
 		case PLUS:
-			// Depilage du dernier Symbole
-			lastSymbole = automate.popSymbole();
-			// Creation du Symbole EXPR
-			lastSymbole->setId(7);
-			// Reduction
-				// Depilage de 1 Etat
-				// Empilage du symbole EXPR
-			automate.reduction(1, lastSymbole);
-			break;
-		// Lecture de '*'
 		case MULT:
-			// Depilage du dernier Symbole
-			lastSymbole = automate.popSymbole();
-			// Creation du Symbole EXPR
-			lastSymbole->setId(7);
-			// Reduction
-				// Depilage de 1 Etat
-				// Empilage du symbole EXPR
-			automate.reduction(1, lastSymbole);
-			break;
-		// Lecture de ')'
 		case CLOSEPAR:
-			// Depilage du dernier Symbole
-			lastSymbole = automate.popSymbole();
-			// Creation du Symbole EXPR
-			lastSymbole->setId(7);
-			// Reduction
-				// Depilage de 1 Etat
-				// Empilage du symbole EXPR
-			automate.reduction(1, lastSymbole);
-			break;
-		// Lecture de '$'
 		case FIN:
 			// Depilage du dernier Symbole
 			lastSymbole = automate.popSymbole();
-			// Creation du Symbole EXPR
+			// Modification du Symbole en EXPR
 			lastSymbole->setId(7);
-			// Reduction
+			// Reduction selon la regle 5
 				// Depilage de 1 Etat
 				// Empilage du symbole EXPR
 			automate.reduction(1, lastSymbole);
@@ -69,4 +39,6 @@ bool E3::transition(Automate & automate, Symbole * symbole)
 		default:
 			break;
 	}
+
+	return 0;
 }

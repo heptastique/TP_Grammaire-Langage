@@ -39,4 +39,6 @@ bool E6::transition(Automate & automate, Symbole * symbole)
 		default:
 			break;
 	}
+
+	return 0;
 }

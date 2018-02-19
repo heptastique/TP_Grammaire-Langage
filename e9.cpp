@@ -1,4 +1,5 @@
 # include "e9.h"
+# include "e5.h"
 
 E9::E9(string name) : Etat(name)
 {
@@ -14,47 +15,29 @@ E9::~E9()
 	// A la lecture du Symbole
 bool E9::transition(Automate & automate, Symbole * symbole)
 {
-	// Switch sur le Symbole lu
+	Symbole * lastSymbole;
+
+	// Switch sur le symbole lu
 	switch(*symbole)
 	{
-		// Lecture de '+'
+		// Lexture de '+', '*', ')', '$'
 		case PLUS:
-			// Depilage du dernier Symbole
-			automate.popSymbole();
-			// Reduction
-				// Depilage de 1 Etat
-				// Creation du symbole EXPR
-			automate.reduction(1, new Symbole(7));		
-			break;
-		// Lecture de '*'
 		case MULT:
-			// Depilage du dernier Symbole
-			automate.popSymbole();
-			// Reduction
-				// Depilage de 1 Etat
-				// Creation du symbole EXPR
-			automate.reduction(1, new Symbole(7));		
-			break;
-		// Lecture de ')'
 		case CLOSEPAR:
-			// Depilage du dernier Symbole
-			automate.popSymbole();
-			// Reduction
-				// Depilage de 1 Etat
-				// Creation du symbole EXPR
-			automate.reduction(1, new Symbole(7));		
-			break;
-		// Lecture de '$'
 		case FIN:
-			// Depilage du dernier Symbole
-			automate.popSymbole();
-			// Reduction
+			// Depilage des 3 derniers Symboles
+			delete(automate.popSymbole());
+			lastSymbole = automate.popSymbole();
+			delete(automate.popSymbole());
+			// Reduction selon la regle 4
 				// Depilage de 1 Etat
-				// Creation du symbole EXPR
-			automate.reduction(1, new Symbole(7));		
+				// Empilage du symbole EXPR
+			automate.reduction(3, lastSymbole);
 			break;
 		// Sinon
 		default:
 			break;
 	}
+
+	return 0;
 }

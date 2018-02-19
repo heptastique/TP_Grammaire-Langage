@@ -68,17 +68,21 @@ void Automate::lecture()
 	}
 	*/
 
-	for (int i = 0; i < 8; i = i + 1)
+	bool fin = 0;
+
+	while (fin != 1)
 	{
-		printEtats();
-		printSymboles();
+		//printEtats();
+		//printSymboles();
 
 		// Lecture du prochain symbole de la chaine
 		symbole = lexer->consulter();
 		// Transition depuis le dernier Etat de la pile des Etats,
 			// En fonction du Symbole lu
-		etats.back()->transition(*this, symbole);
+		fin = etats.back()->transition(*this, symbole);
 	}
+
+	cout << " = " << ((Entier *) symboles.back())->getValeur() << endl;
 }
 
 // Decalage

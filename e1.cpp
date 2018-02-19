@@ -30,10 +30,12 @@ bool E1::transition(Automate & automate, Symbole * symbole)
 			automate.decalage(symbole, new E5("etat5"));
 			break;
 		case FIN:
-			cout << "TERMINE" << endl;
+			return 1;
 			break;
 		// Sinon
 		default:
 			break;
 	}
+
+	return 0;
 }
