@@ -14,3 +14,11 @@ void Symbole::setIdent(int ident)
 {
    this->ident = ident;
 }
+
+void Entier::setVal(int val) {
+    this->valeur = val;
+}
+
+int Entier::getVal() {
+    return valeur;
+}
