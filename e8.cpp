@@ -6,12 +6,18 @@ E8::E8(string name) : Etat(name) {}
 E8::~E8() {}
 
 bool E8::transition(Automate &automate, Symbole *s) {
+    Entier * s1;
+    Entier * s2;
+    
     switch (*s) {
         case PLUS:
         case MULT:
         case CLOSEPAR:
         case FIN:
-            automate.decalage(s, new E3("E3"));
+            s1 = (Entier *) automate.pop();
+            s2 = (Entier *) automate.pop();
+            s2->setVal(s1->getVal() * s2->getVal());
+            automate.reduction(3, s2);
             break;
     }
     return false;

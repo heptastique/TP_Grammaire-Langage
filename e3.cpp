@@ -10,7 +10,9 @@ bool E3::transition(Automate &automate, Symbole *s) {
         case MULT:
         case CLOSEPAR:
         case FIN:
-            automate.reduction(1, s);
+            Symbole * s1 = automate.pop();
+            s1->setIdent(5);
+            automate.reduction(1, s1);
             break;
     }
     return false;
