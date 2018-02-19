@@ -12,4 +12,8 @@ bool Etat::transition(Automate & automate, Symbole * s) {
     return false;
 }
 
+string Etat::getName() {
+    return name;
+}
+
 Etat::~Etat() {}

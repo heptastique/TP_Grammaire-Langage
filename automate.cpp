@@ -19,12 +19,14 @@ void Automate::lecture() {
     bool fini = false;
 
     while(!fini) {
+        //printf("ON AVANCE\n");
         s = lexer->Consulter();
         fini = etats.back()->transition(*this, s);
     }
 }
 
 void Automate::decalage(Symbole * s, Etat * e) {
+    cout << "Decalage vers " << e->getName() << endl;
     symboles.push(s);
     etats.push_back(e);
     
@@ -36,6 +38,7 @@ void Automate::decalage(Symbole * s, Etat * e) {
 }
 
 void Automate::reduction(int n, Symbole *s) {
+    cout << "Reduction de " << n << " fois avec " << *s << endl;
     for(int i = 0; i<n; i++) {
         // On depile le dernier etat
         delete(etats.back());

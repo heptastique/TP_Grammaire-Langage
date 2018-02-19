@@ -2,6 +2,8 @@
 // Created by Vincent on 13/02/2018.
 //
 
+#include <iostream>
+
 #include "e1.h"
 #include "e4.h"
 #include "e5.h"
@@ -19,6 +21,7 @@ bool E1::transition(Automate &automate, Symbole *s) {
             automate.decalage(s, new E5("E5"));
             break;
         case FIN:
+            cout << "THE END" << endl;
             return true;
         default:
             break;
