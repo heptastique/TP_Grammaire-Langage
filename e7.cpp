@@ -13,11 +13,12 @@ bool E7::transition(Automate &automate, Symbole *s) {
     switch (*s) {
         case PLUS:
             s1 = (Entier *) automate.pop();
-            automate.pop();
+            delete(automate.pop());
             s2 = (Entier *) automate.pop();
             s1->setVal(s1->getVal()+s2->getVal());
             s1->setIdent(5);
             automate.reduction(3, s1);
+            delete(s1);
             break;
         case MULT:
             automate.decalage(s, new E5("E5"));

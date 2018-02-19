@@ -14,7 +14,9 @@ bool E9::transition(Automate &automate, Symbole *s) {
         case MULT:
         case CLOSEPAR:
         case FIN:
+            delete(automate.pop());
             s1 = automate.pop();
+            delete(automate.pop());
             automate.reduction(3, s1);
             break;
         default:

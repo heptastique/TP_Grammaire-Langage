@@ -15,9 +15,11 @@ bool E8::transition(Automate &automate, Symbole *s) {
         case CLOSEPAR:
         case FIN:
             s1 = (Entier *) automate.pop();
+            delete(automate.pop());
             s2 = (Entier *) automate.pop();
             s2->setVal(s1->getVal() * s2->getVal());
             automate.reduction(3, s2);
+            delete(s2);
             break;
         default:
             break;
