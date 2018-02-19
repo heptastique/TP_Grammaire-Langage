@@ -22,6 +22,8 @@ bool E7::transition(Automate &automate, Symbole *s) {
         case MULT:
             automate.decalage(s, new E5("E5"));
             break;
+        default:
+            break;
     }
     return false;
 }

@@ -14,6 +14,8 @@ bool E3::transition(Automate &automate, Symbole *s) {
             s1->setIdent(5);
             automate.reduction(1, s1);
             break;
+        default:
+            break;
     }
     return false;
 }

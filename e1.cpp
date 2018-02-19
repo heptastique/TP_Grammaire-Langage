@@ -20,6 +20,7 @@ bool E1::transition(Automate &automate, Symbole *s) {
             break;
         case FIN:
             return true;
+        default:
             break;
     }
     return false;

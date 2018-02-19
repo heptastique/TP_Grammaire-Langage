@@ -18,6 +18,8 @@ bool E6::transition(Automate &automate, Symbole *s) {
         case CLOSEPAR:
             automate.decalage(s, new E9("E9"));
             break;
+        default:
+            break;
     }
     return false;
 }

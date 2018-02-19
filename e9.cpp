@@ -17,6 +17,8 @@ bool E9::transition(Automate &automate, Symbole *s) {
             s1 = automate.pop();
             automate.reduction(3, s1);
             break;
+        default:
+            break;
     }
     return false;
 }

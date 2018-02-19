@@ -19,6 +19,8 @@ bool E8::transition(Automate &automate, Symbole *s) {
             s2->setVal(s1->getVal() * s2->getVal());
             automate.reduction(3, s2);
             break;
+        default:
+            break;
     }
     return false;
 }
