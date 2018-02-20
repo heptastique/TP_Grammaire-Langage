@@ -10,7 +10,6 @@ E0::~E0() {}
 bool E0::transition(Automate &automate, Symbole *s) {
     switch (*s) {
         case INT:
-            printf("It's an INT\n");
             automate.decalage(s, new E3("E3"));
             break;
         case OPENPAR:
