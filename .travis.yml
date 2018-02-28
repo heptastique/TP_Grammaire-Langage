@@ -9,6 +9,7 @@ compiler:
 install:
   - sudo apt-get install cmake
   - chmod +x ./compile.sh
+  - make
 
 script:
   - ./compile.sh
