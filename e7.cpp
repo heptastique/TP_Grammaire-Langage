@@ -17,9 +17,8 @@ bool E7::transition(Automate &automate, Symbole *s) {
             s1 = (Entier *) automate.pop();
             delete(automate.pop());
             s2 = (Entier *) automate.pop();
-            s1->setVal(s1->getVal()+s2->getVal());
-            s1->setIdent(5);
-            automate.reduction(3, s1);
+            s2->setVal(s1->getVal()+s2->getVal());
+            automate.reduction(3, s2);
             delete(s1);
             break;
         case MULT:
