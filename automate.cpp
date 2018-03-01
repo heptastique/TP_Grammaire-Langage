@@ -20,16 +20,18 @@ void Automate::lecture() {
 
     while(!fini) {
         //printf("ON AVANCE\n");
+        printEtats();
+        printSymboles();
         s = lexer->Consulter();
         fini = etats.back()->transition(*this, s);
     }
 
-    cout << " = " << ((Entier *)symboles.top())->getVal() << endl;
+    cout << " = " << ((Entier *)symboles.back())->getVal() << endl;
 }
 
 void Automate::decalage(Symbole * s, Etat * e) {
     cout << "Decalage vers " << e->getName() << endl;
-    symboles.push(s);
+    symboles.push_back(s);
     etats.push_back(e);
     
     // Seulement si le symbole est terminal
@@ -53,7 +55,35 @@ void Automate::reduction(int n, Symbole *s) {
 
 Symbole * Automate::pop()
 {
-    Symbole * s1 = symboles.top();
-    symboles.pop();
+    Symbole * s1 = symboles.back();
+    symboles.pop_back();
     return s1;
+}
+
+// Affiche la pile des Etats
+void Automate::printEtats()
+{
+	cout << "Etats : {";
+
+	for (int i = 0; i < etats.size(); i = i + 1)
+	{
+		etats[i]->print();
+		cout << ", ";
+	}
+
+	cout << "}" << endl;
+}
+
+// Affiche la pile des Symboles
+void Automate::printSymboles()
+{
+	cout << "Symboles : {";
+
+	for (int i = 0; i < symboles.size(); i = i + 1)
+	{
+		symboles[i]->Affiche();
+		cout << ", ";
+	}
+
+	cout << "}" << endl;
 }

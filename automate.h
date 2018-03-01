@@ -27,6 +27,8 @@ public:
     Symbole * pop();
 
     void reduction(int n,Symbole * s);
+    void printEtats();
+    void printSymboles();
 
 protected:
     string chaine;
@@ -34,6 +36,6 @@ protected:
     Lexer * lexer;
 
     vector<Etat *> etats;
-    stack<Symbole *> symboles;
+    vector<Symbole *> symboles;
 };
 
