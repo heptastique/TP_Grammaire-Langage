@@ -19,7 +19,7 @@ bool E8::transition(Automate &automate, Symbole *s) {
             s2 = (Entier *) automate.pop();
             s2->setVal(s1->getVal() * s2->getVal());
             automate.reduction(3, s2);
-            delete(s2);
+            delete(s1);
             break;
         default:
             break;
