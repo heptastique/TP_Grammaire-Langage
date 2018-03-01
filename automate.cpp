@@ -23,6 +23,8 @@ void Automate::lecture() {
         s = lexer->Consulter();
         fini = etats.back()->transition(*this, s);
     }
+
+    cout << " = " << ((Entier *)symboles.top())->getVal() << endl;
 }
 
 void Automate::decalage(Symbole * s, Etat * e) {
