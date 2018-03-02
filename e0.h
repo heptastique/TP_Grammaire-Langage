@@ -1,8 +1,5 @@
-//
-// Created by Vincent on 13/02/2018.
-//
 #pragma once
-
+#include "debug.h"
 #include "etat.h"
 
 class E0 : public Etat {
@@ -10,5 +7,5 @@ public:
     E0(string name);
     ~E0();
     void print() const;
-    bool transition(Automate & automate, Symbole * s);
+    int transition(Automate & automate, Symbole * s);
 };

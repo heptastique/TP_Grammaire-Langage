@@ -1,5 +1,5 @@
 #pragma once
-
+#include "debug.h"
 #include <string>
 using namespace std;
 
@@ -11,8 +11,12 @@ class Symbole {
    public:
       Symbole(int i) : ident(i) {  }
       virtual ~Symbole() { }
+
       operator int() const { return ident; }
       virtual void Affiche();
+	  virtual int eval();
+      int getIdent();
+      void setIdent(int ident);
 
    protected:
       int ident;
@@ -23,11 +27,8 @@ class Entier : public Symbole {
       Entier(int v) : Symbole(INT), valeur(v) { }
       ~Entier() { }
       virtual void Affiche();
+      int eval() {return valeur;}
+	  void setValeur(int valeur) { this->valeur = valeur; }
    protected:
       int valeur;
 };
-
-/*class Plus : public Symbole {
-	public:
-		
-}*/

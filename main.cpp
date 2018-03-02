@@ -1,6 +1,6 @@
+#include "debug.h"
 #include <iostream>
 #include "automate.h"
-
 
 int main(void) {
 

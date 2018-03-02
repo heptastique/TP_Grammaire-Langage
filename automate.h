@@ -1,6 +1,6 @@
 #pragma once
-
-#include <stack>
+#include "debug.h"
+#include <vector>
 #include "lexer.h"
 #include "expr.h"
 
@@ -9,8 +9,8 @@ using namespace std;
 class Etat;
 class Automate {
 public:
-    Automate(string chaine) : l(chaine) {}
-    virtual ~Automate() { }
+    Automate(string chaine);
+    virtual ~Automate();
 
     /**
      * Lis la chaine de caractère donné par l'utilisateur.
@@ -31,12 +31,11 @@ public:
     
     Symbole* popSymbol();
     
-    void popAndDestroySymbol();
+    Symbole* popAndDestroySymbol();
 
 protected:
-    Lexer l;
-	
-    stack<Etat *> etats;
-    stack<Symbole *> symboles;
+    Lexer * l;
+    vector<Etat *> etats;
+    vector<Symbole *> symboles;
 };
 
