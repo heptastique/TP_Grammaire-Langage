@@ -10,25 +10,28 @@ set(SOURCES
         symbole.cpp
         automate.cpp
         etat.cpp
-	e0.cpp
+		e0.cpp
         e1.cpp
-	e2.cpp
-	e3.cpp
-	e4.cpp
-	e5.cpp
-	e6.cpp
-	e7.cpp
-	e8.cpp
-	e9.cpp
-        expr.cpp)
+		e2.cpp
+		e3.cpp
+		e4.cpp
+		e5.cpp
+		e6.cpp
+		e7.cpp
+		e8.cpp
+		e9.cpp
+		expr.cpp
+		exprPlus.cpp
+		exprMult.cpp)
 
 set(HEADERS
+		debug.h
         lexer.h
         symbole.h
         automate.h
         etat.h
         e0.h
-	e1.h
+		e1.h
         e2.h
         e3.h
         e4.h
@@ -37,7 +40,9 @@ set(HEADERS
         e7.h
         e8.h
         e9.h
-        expr.h)
+        expr.h
+		exprPlus.h
+		exprMult.h)
 
 
 add_executable(TP ${SOURCES} ${HEADERS})
