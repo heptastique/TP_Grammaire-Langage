@@ -1,4 +1,4 @@
-DEBUG=yes
+DEBUG=no
 GPP=g++
 GFLAGS=-std=c++11 
 
